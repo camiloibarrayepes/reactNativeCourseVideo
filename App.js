@@ -15,6 +15,10 @@ import API from './utils/api';
 import CategoryList from './src/videos/containers/category-list';
 import Player from './src/player/containers/player';
 
+//redux
+import { Provider } from 'react-redux';
+import store from './store';
+
 
 export default class App extends Component<Props> {
   state = {
@@ -33,6 +37,9 @@ export default class App extends Component<Props> {
   }
   render() {
     return (
+    <Provider
+      store={store}
+      >
       <Home>
         <Header />
         <Player/>
@@ -49,6 +56,7 @@ export default class App extends Component<Props> {
         </View>
         }
       </Home>
+      </Provider>
     );
   }
 }
